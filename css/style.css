@@ -88,6 +88,11 @@ h1,h2,h3,h4,h5,h6,ul,p,svg,img{
 
 /*HEADER*/
 header{
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 5;
+
     background-color: var(--white-color);
     font-weight: 500;
     
@@ -97,31 +102,46 @@ header{
 
 .site-nav .link{
     display: block;
+    position: relative;
+
     padding-bottom: 32px;
     padding-top: 32px;
     color: var(--title-text-color);
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+
 .site-nav .link.current{
     color: var(--accent-color);
 }
 
-.contact a{
+.site-nav .link.current::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    height: 4px;
+    width: 100%;
+    border-radius: 2px;
+    background-color: var(--accent-color);
+}
+
+.contact .cnt-link{
     color: var(--primary-text-color);
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.contact svg{
+.contact .icon-cnt{
     transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .site-nav .link:hover,
 .site-nav .link:focus,
-.contact a:hover,
-.contact a:focus,
-.contact a:hover svg,
-.contact a:focus svg {
+.contact .cnt-link:hover,
+.contact .cnt-link:focus,
+.contact .cnt-link:hover .icon-cnt,
+.contact .cnt-link:focus .icon-cnt {
   color: var(--accent-color);
   fill: var(--accent-color);
 }
